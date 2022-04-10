@@ -3,8 +3,8 @@ package ua.lviv.iot.airline.models;
 public class Airliner extends Plane {
   int numberOfPassengerSeats;
 
-  public Airliner(String model, int fuelVolume, int flightRange, int numberOfPassengerSeats) {
-    super(model, fuelVolume, flightRange);
+  public Airliner(String model, int fuelVolume, int flightRange, int countOfFlights, String type, int numberOfPassengerSeats) {
+    super(model, fuelVolume, flightRange, countOfFlights, type);
     this.numberOfPassengerSeats = numberOfPassengerSeats;
   }
 

@@ -4,8 +4,8 @@ public class Cargo extends Plane {
   int weightOfCargo;
   int length;
 
-  public Cargo(String model, int fuelVolume, int flightRange, int weightOfCargo, int length) {
-    super(model, fuelVolume, flightRange);
+  public Cargo(String model, int fuelVolume, int flightRange, int countOfFlights, String type, int weightOfCargo, int length) {
+    super(model, fuelVolume, flightRange, countOfFlights, type);
     this.weightOfCargo = weightOfCargo;
     this.length = length;
   }
