@@ -4,6 +4,10 @@ import ua.lviv.iot.airline.managers.impl.AirlineManager;
 import ua.lviv.iot.airline.models.Airliner;
 import ua.lviv.iot.airline.models.Airport;
 import ua.lviv.iot.airline.models.Cargo;
+import ua.lviv.iot.airline.models.Plane;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
   public static void main(String[] args) {
@@ -23,17 +27,19 @@ public class Main {
     Airliner boeing767 = new Airliner("boeing 767", 8000, 25, 20000, "airliner", 955);
     Airliner boeing757 = new Airliner("boeing 757", 7500, 45, 25000, "airliner", 450);
 
-    turkish.addPlane(mriiya);
-    turkish.addPlane(an122);
-    turkish.addPlane(an222);
-    turkish.addPlane(an432);
-    turkish.addPlane(boeing747);
-    turkish.addPlane(boeing777);
-    turkish.addPlane(boeing767);
-    turkish.addPlane(boeing757);
+    List<Plane> hangar = new ArrayList<>();
 
-    System.out.println(turkish.findPlaneByTypeSortByRange("cargo"));
-    System.out.println(turkish.findPlaneByTypeSortByFuel("airliner"));
-    System.out.println(turkish.findPlaneByTypeSortByFlights("cargo"));
+    turkish.addPlane(hangar, mriiya);
+    turkish.addPlane(hangar, an122);
+    turkish.addPlane(hangar, an222);
+    turkish.addPlane(hangar, an432);
+    turkish.addPlane(hangar, boeing747);
+    turkish.addPlane(hangar, boeing777);
+    turkish.addPlane(hangar, boeing767);
+    turkish.addPlane(hangar, boeing757);
+
+    System.out.println(turkish.findPlaneByTypeSortByRange(hangar, "cargo"));
+    System.out.println(turkish.findPlaneByTypeSortByFuel(hangar, "airliner"));
+    System.out.println(turkish.findPlaneByTypeSortByFlights(hangar, "cargo"));
   }
 }

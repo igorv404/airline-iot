@@ -4,21 +4,19 @@ import ua.lviv.iot.airline.managers.IAirlineManager;
 import ua.lviv.iot.airline.models.Plane;
 
 import java.util.List;
-import java.util.LinkedList;
 import java.util.Objects;
 import java.util.Comparator;
 import java.util.stream.Collectors;
 
 public class AirlineManager implements IAirlineManager {
-  private final List<Plane> hangar = new LinkedList<>();
 
   @Override
-  public void addPlane(Plane plane) {
+  public void addPlane(List<Plane> hangar, Plane plane) {
     hangar.add(plane);
   }
 
   @Override
-  public List<Plane> findPlaneByTypeSortByRange(String type) {
+  public List<Plane> findPlaneByTypeSortByRange(List<Plane> hangar, String type) {
     return hangar.stream()
             .filter(plane -> Objects.equals(plane.getType(), type))
             .sorted(Comparator.comparing(Plane::getFlightRange).reversed())
@@ -26,7 +24,7 @@ public class AirlineManager implements IAirlineManager {
   }
 
   @Override
-  public List<Plane> findPlaneByTypeSortByFuel(String type) {
+  public List<Plane> findPlaneByTypeSortByFuel(List<Plane> hangar, String type) {
     return hangar.stream()
             .filter(plane -> Objects.equals(plane.getType(), type))
             .sorted(Comparator.comparing(Plane::getFuelVolume).reversed())
@@ -34,7 +32,7 @@ public class AirlineManager implements IAirlineManager {
   }
 
   @Override
-  public List<Plane> findPlaneByTypeSortByFlights(String type) {
+  public List<Plane> findPlaneByTypeSortByFlights(List<Plane> hangar, String type) {
     return hangar.stream()
             .filter(plane -> Objects.equals(plane.getType(), type))
             .sorted(Comparator.comparing(Plane::getCountOfFlights).reversed())
