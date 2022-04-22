@@ -5,6 +5,7 @@ import ua.lviv.iot.airline.models.Cargo;
 import ua.lviv.iot.airline.models.Plane;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -27,28 +28,34 @@ class AirlineManagerTest {
 
   @org.junit.jupiter.api.Test
   void findPlaneByTypeSortByRange() {
-    hangar.add(mriiya);
     hangar.add(an122);
+    hangar.add(mriiya);
     hangar.add(boeing747);
     hangar.add(boeing777);
+    List<Plane> exml = Arrays.asList(mriiya, an122);
     assertEquals(2, airlineManager.findPlaneByTypeSortByRange(hangar, "cargo").size());
+    assertEquals(exml, airlineManager.findPlaneByTypeSortByRange(hangar, "cargo"));
   }
 
   @org.junit.jupiter.api.Test
   void findPlaneByTypeSortByFuel() {
-    hangar.add(mriiya);
     hangar.add(an122);
+    hangar.add(mriiya);
     hangar.add(boeing747);
     hangar.add(boeing777);
+    List<Plane> exml = Arrays.asList(mriiya, an122);
     assertEquals(2, airlineManager.findPlaneByTypeSortByFuel(hangar, "cargo").size());
+    assertEquals(exml, airlineManager.findPlaneByTypeSortByFuel(hangar, "cargo"));
   }
 
   @org.junit.jupiter.api.Test
   void findPlaneByTypeSortByFlights() {
-    hangar.add(mriiya);
     hangar.add(an122);
+    hangar.add(mriiya);
     hangar.add(boeing747);
     hangar.add(boeing777);
+    List<Plane> exml = Arrays.asList(mriiya, an122);
     assertEquals(2, airlineManager.findPlaneByTypeSortByFlights(hangar, "cargo").size());
+    assertEquals(exml, airlineManager.findPlaneByTypeSortByFlights(hangar, "cargo"));
   }
 }
