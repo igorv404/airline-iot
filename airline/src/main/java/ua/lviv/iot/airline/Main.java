@@ -1,6 +1,7 @@
 package ua.lviv.iot.airline;
 
 import ua.lviv.iot.airline.managers.impl.AirlineManager;
+import ua.lviv.iot.airline.managers.impl.AirlineWriter;
 import ua.lviv.iot.airline.models.Airliner;
 import ua.lviv.iot.airline.models.Airport;
 import ua.lviv.iot.airline.models.Cargo;
@@ -41,5 +42,9 @@ public class Main {
     System.out.println(turkish.findPlaneByTypeSortByRange(hangar, "cargo"));
     System.out.println(turkish.findPlaneByTypeSortByFuel(hangar, "airliner"));
     System.out.println(turkish.findPlaneByTypeSortByFlights(hangar, "cargo"));
+
+    AirlineWriter table = new AirlineWriter();
+
+    table.writeCSV(hangar);
   }
 }

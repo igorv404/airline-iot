@@ -15,6 +15,10 @@ public abstract class Plane {
     this.type = type;
   }
 
+  public String getModel() {
+    return model;
+  }
+
   public int getFuelVolume() {
     return fuelVolume;
   }
@@ -29,5 +33,13 @@ public abstract class Plane {
 
   public String getType() {
     return type;
+  }
+
+  public String getHeaders() {
+    return "model, fuelVolume, flightRange, countOfFlights, type";
+  }
+
+  public String toCSV() {
+    return String.format("%s, %s, %s, %s, %s", getModel(), getFuelVolume(), getFlightRange(), getCountOfFlights(), getType());
   }
 }

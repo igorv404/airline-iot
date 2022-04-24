@@ -8,9 +8,23 @@ public class Airliner extends Plane {
     this.numberOfPassengerSeats = numberOfPassengerSeats;
   }
 
+  public int getNumberOfPassengerSeats() {
+    return numberOfPassengerSeats;
+  }
+
   @Override
   public String toString() {
     return String.format("Model: %s, Fuel volume: %d, Flight range: %d, Number of passenger seats: %d",
             model, fuelVolume, flightRange, numberOfPassengerSeats);
+  }
+
+  @Override
+  public String getHeaders() {
+    return String.format("%s, %s", super.getHeaders(), "numberOfPassengerSeats");
+  }
+
+  @Override
+  public String toCSV() {
+    return String.format("%s, %s", super.toCSV(), getNumberOfPassengerSeats());
   }
 }
