@@ -6,7 +6,8 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 class AirlineWriterTest {
 
@@ -20,7 +21,7 @@ class AirlineWriterTest {
       assertNotEquals(readerEx.readLine(), null);
       assertEquals(readerEx.readLine(), readerRes.readLine());
     } catch (Exception e) {
-      System.out.println(e.getMessage());
+      throw new RuntimeException(e);
     }
   }
 }
