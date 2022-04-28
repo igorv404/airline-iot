@@ -13,8 +13,9 @@ class AirlineWriterTest {
 
   @Test
   void writeCSV() {
-    String readerExPath = String.format("%s%s%s%s%s", System.getProperty("user.dir"), File.separator, "src\\test\\resources", File.separator, "example.csv");
-    String readerResPath = String.format("%s%s%s%s%s", System.getProperty("user.dir"), File.separator, "src\\main\\resources", File.separator, "result.csv");
+    var sep = File.separator;
+    String readerExPath = String.format("%s%s%s%s%s", System.getProperty("user.dir"), sep, "src\\test\\resources", sep, "example.csv");
+    String readerResPath = String.format("%s%s%s%s%s", System.getProperty("user.dir"), sep, "src\\main\\resources", sep, "result.csv");
     try (BufferedReader readerEx = new BufferedReader(new FileReader(readerExPath));
          BufferedReader readerRes = new BufferedReader(new FileReader(readerResPath))) {
       assertNotEquals(readerRes.readLine(), null);

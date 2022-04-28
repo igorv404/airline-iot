@@ -11,7 +11,8 @@ public class AirlineWriter implements IAirlineWriter {
 
   @Override
   public void writeCSV(List<Plane> hangar) {
-    String writerResPath = String.format("%s%s%s%s%s", System.getProperty("user.dir"), File.separator, "airline\\src\\main\\resources", File.separator, "result.csv");
+    var sep = File.separator;
+    String writerResPath = String.format("%s%s%s%s%s", System.getProperty("user.dir"), sep, "airline\\src\\main\\resources", sep, "result.csv");
     try (FileWriter writer = new FileWriter(writerResPath)) {
       String lastClassName = "";
       for (var plane : hangar) {
