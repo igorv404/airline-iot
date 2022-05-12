@@ -2,6 +2,7 @@ package ua.lviv.iot.airline;
 
 import ua.lviv.iot.airline.managers.impl.AirlineManager;
 import ua.lviv.iot.airline.managers.impl.AirlineWriter;
+import ua.lviv.iot.airline.managers.impl.Searcher;
 import ua.lviv.iot.airline.models.Airliner;
 import ua.lviv.iot.airline.models.Airport;
 import ua.lviv.iot.airline.models.Cargo;
@@ -15,8 +16,6 @@ public class Main {
     AirlineManager turkish = new AirlineManager();
 
     Airport halytskiy = new Airport("halytskiy", "Lviv");
-
-    System.out.println(halytskiy);
 
     Cargo mriiya = new Cargo("Mriiya", 8000, 12000, 4000, "cargo", 1200, 250);
     Cargo an122 = new Cargo("an122", 2000, 10000, 11, "cargo", 1100, 200);
@@ -39,12 +38,18 @@ public class Main {
     turkish.addPlane(hangar, boeing767);
     turkish.addPlane(hangar, boeing757);
 
-    System.out.println(turkish.findPlaneByTypeSortByRange(hangar, "cargo"));
-    System.out.println(turkish.findPlaneByTypeSortByFuel(hangar, "airliner"));
-    System.out.println(turkish.findPlaneByTypeSortByFlights(hangar, "cargo"));
-
     AirlineWriter table = new AirlineWriter();
 
     table.writeCSV(hangar);
+
+    String txt = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras semper libero non orci maximus, non laoreet massa varius." +
+            " Sed consequat metus id felis mollis ullamcorper vitae id ligula. Aliquam rhoncus at justo sed viverra." +
+            " Mauris eleifend ante eget urna varius, in rutrum augue ullamcorper. Nunc est risus, aliquam at tortor eu, fermentum lobortis mi." +
+            " Nulla vehicula, erat quis fermentum mattis, ligula massa viverra est, quis auctor lorem massa quis metus. Nunc sed facilisis dolor." +
+            " Aenean nec dignissim mauris. Donec eu ornare nunc.";
+
+    Searcher searcher = new Searcher();
+
+    System.out.println(searcher.findRightWords(txt, 4));
   }
 }
