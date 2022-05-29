@@ -1,36 +1,39 @@
 package ua.lviv.iot.airline.models;
 
-public class Cargo extends Plane {
-  int weightOfCargo;
-  int length;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
-  public Cargo(String model, int fuelVolume, int flightRange, int countOfFlights, String type, int weightOfCargo, int length) {
+@Entity
+@Table(name = "cargo")
+public class Cargo extends Plane {
+  @Column(nullable = false)
+  private Integer weightOfCargo;
+  @Column(nullable = false)
+  private Integer length;
+
+  public Cargo(String model, Integer fuelVolume, Integer flightRange, Integer countOfFlights, String type, Integer weightOfCargo, Integer length) {
     super(model, fuelVolume, flightRange, countOfFlights, type);
     this.weightOfCargo = weightOfCargo;
     this.length = length;
   }
 
-  public int getWeightOfCargo() {
+  public Cargo() {
+  }
+
+  public Integer getWeightOfCargo() {
     return weightOfCargo;
   }
 
-  public int getLength() {
+  public void setWeightOfCargo(Integer weightOfCargo) {
+    this.weightOfCargo = weightOfCargo;
+  }
+
+  public Integer getLength() {
     return length;
   }
 
-  @Override
-  public String toString() {
-    return String.format("Model: %s, Fuel volume: %d, Flight range: %d, Weight of cargo: %d, Length: %d",
-            model, fuelVolume, flightRange, weightOfCargo, length);
-  }
-
-  @Override
-  public String getHeaders() {
-    return String.format("%s, %s", super.getHeaders(), "weightOfCargo, length");
-  }
-
-  @Override
-  public String toCSV() {
-    return String.format("%s, %s, %s", super.toCSV(), getWeightOfCargo(), getLength());
+  public void setLength(Integer length) {
+    this.length = length;
   }
 }
