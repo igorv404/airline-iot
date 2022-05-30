@@ -26,8 +26,8 @@ public class AirlinerService {
     return airlinerRepository.findAll();
   }
 
-  public Object getById(Integer id) {
-    return airlinerRepository.findById(id);
+  public Airliner getById(Integer id) {
+    return airlinerRepository.findById(id).orElseThrow();
   }
 
   @Transactional

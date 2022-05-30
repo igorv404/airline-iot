@@ -12,8 +12,8 @@ public class Cargo extends Plane {
   @Column(nullable = false)
   private Integer length;
 
-  public Cargo(String model, Integer fuelVolume, Integer flightRange, Integer countOfFlights, String type, Integer weightOfCargo, Integer length) {
-    super(model, fuelVolume, flightRange, countOfFlights, type);
+  public Cargo(Integer id, String model, Integer fuelVolume, Integer flightRange, Integer countOfFlights, String type, Integer weightOfCargo, Integer length) {
+    super(id, model, fuelVolume, flightRange, countOfFlights, type);
     this.weightOfCargo = weightOfCargo;
     this.length = length;
   }

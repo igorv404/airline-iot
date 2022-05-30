@@ -25,8 +25,8 @@ public class CargoService {
     return cargoRepository.findAll();
   }
 
-  public Object getById(Integer id) {
-    return cargoRepository.findById(id);
+  public Cargo getById(Integer id) {
+    return cargoRepository.findById(id).orElseThrow();
   }
 
   @Transactional

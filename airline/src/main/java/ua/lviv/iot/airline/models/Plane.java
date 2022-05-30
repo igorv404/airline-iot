@@ -18,7 +18,8 @@ public abstract class Plane {
   @Column(nullable = false, columnDefinition = "TEXT")
   private String type;
 
-  public Plane(String model, Integer fuelVolume, Integer flightRange, Integer countOfFlights, String type) {
+  public Plane(Integer id, String model, Integer fuelVolume, Integer flightRange, Integer countOfFlights, String type) {
+    this.id = id;
     this.model = model;
     this.fuelVolume = fuelVolume;
     this.flightRange = flightRange;
@@ -67,5 +68,9 @@ public abstract class Plane {
 
   public void setType(String type) {
     this.type = type;
+  }
+
+  public Integer getId() {
+    return id;
   }
 }

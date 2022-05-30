@@ -28,7 +28,7 @@ public class CargoController {
   }
 
   @GetMapping("/{id}")
-  private Object getById(@PathVariable("id") Integer id) {
+  private Cargo getById(@PathVariable("id") Integer id) {
     return cargoService.getById(id);
   }
 

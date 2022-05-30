@@ -29,7 +29,7 @@ public class AirlinerController {
   }
 
   @GetMapping("/{id}")
-  private Object getById(@PathVariable("id") Integer id) {
+  private Airliner getById(@PathVariable("id") Integer id) {
     return airlinerService.getById(id);
   }
 
