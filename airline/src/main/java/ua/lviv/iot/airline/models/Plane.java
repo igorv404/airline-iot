@@ -1,13 +1,25 @@
 package ua.lviv.iot.airline.models;
 
-public abstract class Plane {
-  String model;
-  int fuelVolume;
-  int flightRange;
-  int countOfFlights;
-  String type;
+import javax.persistence.*;
 
-  public Plane(String model, int fuelVolume, int flightRange, int countOfFlights, String type) {
+@MappedSuperclass
+public abstract class Plane {
+  @Id
+  @GeneratedValue
+  private Integer id;
+  @Column(nullable = false, columnDefinition = "TEXT")
+  private String model;
+  @Column(nullable = false)
+  private Integer fuelVolume;
+  @Column(nullable = false)
+  private Integer flightRange;
+  @Column(nullable = false)
+  private Integer countOfFlights;
+  @Column(nullable = false, columnDefinition = "TEXT")
+  private String type;
+
+  public Plane(Integer id, String model, Integer fuelVolume, Integer flightRange, Integer countOfFlights, String type) {
+    this.id = id;
     this.model = model;
     this.fuelVolume = fuelVolume;
     this.flightRange = flightRange;
@@ -15,31 +27,50 @@ public abstract class Plane {
     this.type = type;
   }
 
+  public Plane() {
+  }
+
   public String getModel() {
     return model;
   }
 
-  public int getFuelVolume() {
+  public void setModel(String model) {
+    this.model = model;
+  }
+
+  public Integer getFuelVolume() {
     return fuelVolume;
   }
 
-  public int getFlightRange() {
+  public void setFuelVolume(Integer fuelVolume) {
+    this.fuelVolume = fuelVolume;
+  }
+
+  public Integer getFlightRange() {
     return flightRange;
   }
 
-  public int getCountOfFlights() {
+  public void setFlightRange(Integer flightRange) {
+    this.flightRange = flightRange;
+  }
+
+  public Integer getCountOfFlights() {
     return countOfFlights;
+  }
+
+  public void setCountOfFlights(Integer countOfFlights) {
+    this.countOfFlights = countOfFlights;
   }
 
   public String getType() {
     return type;
   }
 
-  public String getHeaders() {
-    return "model, fuelVolume, flightRange, countOfFlights, type";
+  public void setType(String type) {
+    this.type = type;
   }
 
-  public String toCSV() {
-    return String.format("%s, %s, %s, %s, %s", getModel(), getFuelVolume(), getFlightRange(), getCountOfFlights(), getType());
+  public Integer getId() {
+    return id;
   }
 }
